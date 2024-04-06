@@ -1,4 +1,3 @@
-<div id="overlay"></div>
 <div class="header">
     <div class="item-header-1 d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
@@ -18,7 +17,7 @@
             <img class="img-tokopedia" src="{{ asset('assets/img/2.png') }}" alt="">
             <span class="mx-2 text-category">Kategori</span>
             <div class="wrap-search">
-                <input type="text" name="" id="" class="form-control" placeholder="Cari Barang...">
+                <input type="text" name="" id="" class="form-control" placeholder="Cari di ThriftHaven" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <div class="wrap-icon-search">
                     <img class="img-search" src="{{ asset('assets/img/3.png') }}" alt="">
                 </div>
@@ -49,4 +48,23 @@
         <p class="text-center text-muted">Yuk, isi dengan barang-barang impianmu!</p>
         <button class="btn fw-bold mb-3">Mulai Belanja</button>
     </div>
+</div>
+
+<!-- Search Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content m-c-head">
+            <div class="d-flex justify-content-between">
+                <span class="fw-bold text-dark">Terakhir Dicari</span>
+                <span class="fw-bold text-danger">Hapus Semua</span>
+            </div>
+            <span class="mx-2 mt-2 fs-10">Jersey sepeda</span>
+            <span class="mx-2 mt-2 fs-10">Lampu Emergency</span>
+            <span class="fw-bold my-2 text-dark">Populer</span>
+            <div class="d-flex flex-wrap">
+                <button class="btn">text button</button>
+                <button class="btn mx-2">text button</button>
+                <button class="btn">text button</button>
+            </div>
+        </div>
 </div>

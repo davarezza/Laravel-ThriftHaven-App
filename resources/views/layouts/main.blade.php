@@ -11,6 +11,7 @@
     {{-- <link rel="icon" type="image/x-icon" class="rounded-circle" href="{{ asset('favicon.ico') }}" /> --}}
   </head>
   <body>
+    <div id="overlay"></div>
 
     @include('partials.navbar')
 
