@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}" />
 </head>
 
@@ -33,7 +34,7 @@
                                 placeholder="Phone number or email">
                             <input type="password" id="password" class="form-control border-secondary mt-2" placeholder="Password">
                             <div class="button mt-3">
-                                <button onclick="alertUser()" type="button" class="btn btn-primary w-100"><i class='bx bx-door-open'></i> Masuk</button>
+                                <button type="button" class="btn btn-primary w-100"><i class='bx bx-door-open'></i> Masuk</button>
                             </div>
                         </div>
                     </div>
@@ -61,18 +62,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        const alertUser = () => {
-            let email = document.getElementById("email").value
-            let password = document.getElementById("password").value
-            console.log(email)
-            if (email.length === 0 && password.length === 0) {
-                alert("Enter Your Username")
-            } else {
-                alert(email)
-            }
-        }
-    </script>
+        @if (Session::has('success'))
+        toastr.options = {
+            "positionClass": "toast-top-right",
+        };
+        toastr.success("{{ Session::get('success') }}");
+        @endif
+   </script>
 </body>
 
 </html>
