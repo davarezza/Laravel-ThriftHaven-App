@@ -29,7 +29,7 @@
             <span class="mx-2 line">|</span>
 
             <div class="d-flex">
-                <a href="#" class="btn fw-bold mx-3">Masuk</a>
+                <a href="{{ route('login') }}" class="btn fw-bold mx-3">Masuk</a>
                 <a href="{{ route('register') }}" class="btn fw-bold text-white">Daftar</a>
             </div>
         </div>

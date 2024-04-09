@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    <title>{{ config('app.name') }} - Home</title>
+    <title>Home | {{ config('app.name') }}</title>
 @endsection
 
 @section('container')

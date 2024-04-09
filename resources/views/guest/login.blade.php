@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Register | {{ config('app.name') }}</title>
+    <title>Login | {{ config('app.name') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -21,18 +21,11 @@
             <img src="{{ asset('assets/img/2.png') }}" alt="thrifthaven">
         </div><br>
         <div class="row">
-            <div class="col-lg-6 col-12 homepage-media">
-                <div class="homepage">
-                    <img class="home-image" src="{{ asset('assets/img/login.png') }}" alt="insta homepage">
-                    <h5 class="text-muted fw-bold">Jual Beli Mudah Hanya di ThriftHaven</h5>
-                    <p class="text-secondary">Gabung dan rasakan kemudahan bertransaksi di ThriftHaven</p>
-                </div>
-            </div>
-            <div class="col-lg-6 col-12  border border-light-subtle border-2 right-grid">
+            <div class="col-lg-6 col-12  border border-light-subtle border-2 right-grid" style="margin-left: 100px;">
                 <div class="right-login">
                     <div class="instagram p-4">
-                        <h4 class="text-muted fw-bold">Daftar Sekarang</h4>
-                        <p>Sudah punya akun ThriftHaven?<a class="text-decoration-none text-success fw-bold" href="{{ route('login') }}"> Masuk</a></p>
+                        <h4 class="text-muted fw-bold">Masuk</h4>
+                        <p>Belum punya akun ThriftHaven?<a class="text-decoration-none text-success fw-bold" href="{{ route('register') }}"> Daftar</a></p>
                         <a class="text-decoration-none btn w-100 fw-bold" href="#"><i class='bx bxl-google'></i> Google</a>
                         <hr class="line">
                         <div class="form mt-4">
@@ -40,16 +33,22 @@
                                 placeholder="Phone number or email">
                             <input type="password" id="password" class="form-control border-secondary mt-2" placeholder="Password">
                             <div class="button mt-3">
-                                <button onclick="alertUser()" type="button" class="btn btn-primary w-100"><i class='bx bx-door-open'></i> Daftar</button>
+                                <button onclick="alertUser()" type="button" class="btn btn-primary w-100"><i class='bx bx-door-open'></i> Masuk</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="account">
-                    <p class="text-center">Dengan mendaftar saya menyetujui <span class="text-success">Syarat dan Ketentuan serta Kebijakan Privasi</span></p>
+                    <p class="text-center">Jika ada kesulitan silahkan hubungi <span class="text-success">Customer Service</span></p>
                 </div>
             </div>
-
+            <div class="col-lg-6 col-12 homepage-media">
+                <div class="homepage">
+                    <img class="home-image" src="{{ asset('assets/img/login.png') }}" alt="insta homepage">
+                    <h5 class="text-muted fw-bold">Jual Beli Mudah Hanya di ThriftHaven</h5>
+                    <p class="text-secondary">Hidupkan kembali akunmu!</p>
+                </div>
+            </div>
         </div>
 
     </div>
