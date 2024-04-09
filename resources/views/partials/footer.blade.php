@@ -16,7 +16,7 @@
     <div class="row mx-0 mt-4">
         <div class="col-4">
             <div class="d-flex align-items-center">
-                <img class="mr-3" src="assets/img/18.png" alt="">
+                <img class="mx-3" src="assets/img/18.png" alt="">
                 <div class="d-flex flex-column">
                     <span class="mb-3 fw-bold" style="color: #03ac0e;">Transparent</span>
                     <p>Pembayaran Anda baru saja diteruskan kepenjual setelah barang diterima</p>
@@ -25,7 +25,7 @@
         </div>
         <div class="col-4">
             <div class="d-flex align-items-center">
-                <img class="mr-3" src="assets/img/18.png" alt="">
+                <img class="mx-3" src="assets/img/18.png" alt="">
                 <div class="d-flex flex-column">
                     <span class="mb-3 fw-bold" style="color: #03ac0e;">Transparent</span>
                     <p>Pembayaran Anda baru saja diteruskan kepenjual setelah barang diterima</p>
@@ -34,7 +34,7 @@
         </div>
         <div class="col-4">
             <div class="d-flex align-items-center">
-                <img class="mr-3" src="assets/img/18.png" alt="">
+                <img class="mx-3" src="assets/img/18.png" alt="">
                 <div class="d-flex flex-column">
                     <span class="mb-3 fw-bold" style="color: #03ac0e;">Transparent</span>
                     <p>Pembayaran Anda baru saja diteruskan kepenjual setelah barang diterima</p>
@@ -73,12 +73,12 @@
             <div class="d-flex flex-column align-items-center">
                 <img src="assets/img/21.png" width="400" alt="">
                 <div class="d-flex mt-3">
-                    <img width="150" class="mr-3" src="assets/img/22.png" alt="">
+                    <img width="150" class="mx-3" src="assets/img/22.png" alt="">
                     <img width="150" src="assets/img/23.png" alt="">
                 </div>
                 <span>2019 - 2020 Tokopedia</span>
                 <div class="d-flex align-items-center mt-3">
-                    <span class="text-white fw-bold p-2 mr-3 rounded"
+                    <span class="text-white fw-bold p-2 mx-3 rounded"
                         style="background-color: #03ac0e;">Indonesia</span>
                     <span>English</span>
                 </div>

@@ -29,8 +29,8 @@
             <span class="mx-2 line">|</span>
 
             <div class="d-flex">
-                <button class="btn fw-bold mx-3">Masuk</button>
-                <button class="btn fw-bold text-white">Daftar</button>
+                <a href="#" class="btn fw-bold mx-3">Masuk</a>
+                <a href="{{ route('register') }}" class="btn fw-bold text-white">Daftar</a>
             </div>
         </div>
         <div class="text-under-search d-flex my-2">
