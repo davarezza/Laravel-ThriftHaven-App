@@ -27,16 +27,30 @@
                     <div class="instagram p-4">
                         <h4 class="text-muted fw-bold">Masuk</h4>
                         <p>Belum punya akun ThriftHaven?<a class="text-decoration-none text-success fw-bold" href="{{ route('register') }}"> Daftar</a></p>
-                        <a class="text-decoration-none btn w-100 fw-bold" href="#"><i class='bx bxl-google'></i> Google</a>
+                        {{-- <a class="text-decoration-none btn w-100 fw-bold" href="#"><i class='bx bxl-google'></i> Google</a> --}}
                         <hr class="line">
-                        <div class="form mt-4">
-                            <input type="text" id="email" class="form-control border-secondary" autocomplete="off"
-                                placeholder="Phone number or email">
-                            <input type="password" id="password" class="form-control border-secondary mt-2" placeholder="Password">
+                        <hr class="line">
+                        <hr class="line">
+                        <hr class="line">
+                        <form class="form mt-4" action="/login" method="post">
+                        @csrf
+                            <input type="text" name="email" id="email" class="form-control border-secondary @error('email') is-invalid @enderror" autocomplete="off"
+                                placeholder="Email" value="{{ old('email') }}">
+                            @error('email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            <input type="password" id="password" class="form-control border-secondary mt-2 @error('password') is-invalid @enderror" placeholder="Password" value="{{ old('password') }}">
+                            @error('password')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
                             <div class="button mt-3">
                                 <button type="button" class="btn btn-primary w-100"><i class='bx bx-door-open'></i> Masuk</button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <div class="account">
