@@ -127,6 +127,12 @@ body {
     font-weight: bold;
 }
 
+.avatar-admin-nav {
+    width: 40px;
+    display: inline-block;
+    height: 30px;
+}
+
 .header .btn {
     border-radius: 8px;
     font-size: 13px;
@@ -165,11 +171,34 @@ body {
     z-index: 999999;
 }
 
+.profile-bar {
+    display: flex;
+    position: absolute;
+    right: 35px;
+    top: 90px;
+    background-color: #fff;
+    -webkit-box-shadow: 0px -1px 9px 0px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0px -1px 9px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px -1px 9px 0px rgba(0, 0, 0, 0.1);
+    padding: 10px 30px;
+    border-radius: 8px;
+    visibility: hidden;
+    transition: 0.1s;
+    transform: rotateX(-75deg);
+    z-index: 999999;
+}
+
 .menu-bar img {
     width: 50%;
 }
 
 .menuBarStyle {
+    visibility: visible;
+    transform: rotateX(0deg);
+    transform-origin: 0% 0%;
+}
+
+.profileBarStyle {
     visibility: visible;
     transform: rotateX(0deg);
     transform-origin: 0% 0%;

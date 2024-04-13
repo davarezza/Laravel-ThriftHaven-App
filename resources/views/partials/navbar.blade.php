@@ -28,10 +28,16 @@
             </div>
             <span class="mx-2 line">|</span>
 
+            @auth
+            <div class="avatar-admin-nav mx-3 shadow rounded-circle" onclick="profileHover()">
+                <img src="{{ asset('assets/img/male.svg') }}" class="w-100" alt="">
+            </div>
+            @else
             <div class="d-flex">
                 <a href="{{ route('login') }}" class="btn fw-bold mx-3">Masuk</a>
                 <a href="{{ route('register') }}" class="btn fw-bold text-white">Daftar</a>
             </div>
+            @endauth
         </div>
         <div class="text-under-search d-flex my-2">
             <span class="mx-2 fw-bold">Monitor</span>
@@ -48,5 +54,14 @@
         <h4 class="mt-2 fw-bold">Wah keranjang belanjamu kosong</h4>
         <p class="text-center text-muted">Yuk, isi dengan barang-barang impianmu!</p>
         <button class="btn fw-bold mb-3">Mulai Belanja</button>
+    </div>
+
+    <div class="profile-bar flex-column justify-content-between align-items-center" id="profileBar">
+        <form action="/logout" method="post">
+            @csrf
+            <button type="submit" class="dropdown-item" style="border-bottom: 1px solid #ccc; padding-bottom: 7px;"><i class="bi bi-box-arrow-in-left"></i> Logout</button>
+        </form>
+        <hr class="my-1">
+        <a href="#" class="dropdown-item text-center text-decoration-none text-dark">Profile</a>
     </div>
 </div>

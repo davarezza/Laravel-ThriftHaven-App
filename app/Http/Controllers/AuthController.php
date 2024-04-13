@@ -44,11 +44,19 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            $user = Auth::user();
+            Auth::user();
 
             return redirect('/')->with('success', 'Login Success.');
         }
 
         return back()->with('loginError', 'Login Failed');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        request()->session()->invalidate();
+
+        return redirect('/');
     }
 }
