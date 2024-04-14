@@ -29,14 +29,22 @@
             <span class="mx-2 line">|</span>
 
             @auth
-            <div class="avatar-admin-nav mx-3 shadow rounded-circle" onclick="profileHover()">
-                <img src="{{ asset('assets/img/male.svg') }}" class="w-100" alt="">
-            </div>
+                @if (auth()->user()->role === 'admin')
+                    <div class="avatar-admin-nav mx-3 shadow rounded-circle" onclick="avatarHover()">
+                        <img src="{{ asset('assets/img/male.svg') }}" class="w-100" alt="">
+                    </div>
+                @elseif(auth()->user()->role === 'seller')
+                    <a href="#" class="mx-3 text-admin text-center">Dashboard Seller</a>
+                @elseif(auth()->user()->role === 'customer')
+                    <div class="avatar-admin-nav mx-3 shadow rounded-circle" onclick="avatarHover()">
+                        <img src="{{ asset('assets/img/male.svg') }}" class="w-100" alt="">
+                    </div>
+                @endif
             @else
-            <div class="d-flex">
-                <a href="{{ route('login') }}" class="btn fw-bold mx-3">Masuk</a>
-                <a href="{{ route('register') }}" class="btn fw-bold text-white">Daftar</a>
-            </div>
+                <div class="d-flex">
+                    <a href="{{ route('login') }}" class="btn fw-bold mx-3">Masuk</a>
+                    <a href="{{ route('register') }}" class="btn fw-bold text-white">Daftar</a>
+                </div>
             @endauth
         </div>
         <div class="text-under-search d-flex my-2">
@@ -56,12 +64,30 @@
         <button class="btn fw-bold mb-3">Mulai Belanja</button>
     </div>
 
-    <div class="profile-bar flex-column justify-content-between align-items-center" id="profileBar">
-        <form action="/logout" method="post">
-            @csrf
-            <button type="submit" class="dropdown-item" style="border-bottom: 1px solid #ccc; padding-bottom: 7px;"><i class="bi bi-box-arrow-in-left"></i> Logout</button>
-        </form>
-        <hr class="my-1">
-        <a href="#" class="dropdown-item text-center text-decoration-none text-dark">Profile</a>
+    <div class="avatar-bar flex-column justify-content-between align-items-center" id="avatarBar">
+        @auth
+            @if (auth()->user()->role === 'admin')
+                <a href="#" class="dropdown-item text-center text-decoration-none text-dark"
+                    style="border-bottom: 1px solid #ccc; padding-bottom: 10px;"><i class='bx bxs-dashboard'></i>
+                    Dashboard</a>
+            @elseif(auth()->user()->role === 'seller')
+                <a href="#" class="dropdown-item text-center text-decoration-none text-dark"
+                    style="border-bottom: 1px solid #ccc; padding-bottom: 10px;"><i class='bx bxs-dashboard'></i>
+                    Dashboard</a>
+            @elseif(auth()->user()->role === 'customer')
+                <a href="#" class="dropdown-item text-center text-decoration-none text-dark"
+                    style="border-bottom: 1px solid #ccc; padding-bottom: 10px;"><i class='bx bx-user'></i> Profile</a>
+            @endif
+            <hr class="my-1">
+            <form action="/logout" method="post">
+                @csrf
+                <button type="submit" class="dropdown-item" style="border-bottom: 1px solid #333; padding-bottom: 10px;"><i
+                        class='bx bx-log-out mx-1'></i> Logout</button>
+            </form>
+            <hr class="my-2">
+            <p class="fw-bold text-uppercase text-center text-dark">
+                {{ auth()->user()->role }}
+            </p>
+        @endauth
     </div>
 </div>

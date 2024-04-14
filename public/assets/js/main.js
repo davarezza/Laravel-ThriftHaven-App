@@ -6,10 +6,10 @@ function cartHover() {
     overlay.classList.toggle("overlayStyle");
 }
 
-function profileHover() {
-    let profileBar = document.getElementById("profileBar");
+function avatarHover() {
+    let avatarBar = document.getElementById("avatarBar");
     var overlay = document.getElementById("overlay")
 
-    profileBar.classList.toggle("profileBarStyle");
+    avatarBar.classList.toggle("avatarBarStyle");
     overlay.classList.toggle("overlayStyle");
 }

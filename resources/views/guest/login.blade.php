@@ -30,8 +30,6 @@
                         {{-- <a class="text-decoration-none btn w-100 fw-bold" href="#"><i class='bx bxl-google'></i> Google</a> --}}
                         <hr class="line">
                         <hr class="line">
-                        <hr class="line">
-                        <hr class="line">
                         <form class="form mt-4" action="/login" method="post">
                         @csrf
                             <input type="text" name="email" id="email" class="form-control border-secondary @error('email') is-invalid @enderror" autocomplete="off"
