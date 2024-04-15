@@ -75,7 +75,7 @@
                     style="border-bottom: 1px solid #ccc; padding-bottom: 10px;"><i class='bx bxs-dashboard'></i>
                     Dashboard</a>
             @elseif(auth()->user()->role === 'customer')
-                <a href="#" class="dropdown-item text-center text-decoration-none text-dark"
+                <a href="{{ route('profile') }}" class="dropdown-item text-center text-decoration-none text-dark"
                     style="border-bottom: 1px solid #ccc; padding-bottom: 10px;"><i class='bx bx-user'></i> Profile</a>
             @endif
             <hr class="my-1">
