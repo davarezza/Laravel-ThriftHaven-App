@@ -31,13 +31,27 @@
             @auth
                 @if (auth()->user()->role === 'admin')
                     <div class="avatar-admin-nav mx-3 shadow rounded-circle" onclick="avatarHover()">
-                        <img src="{{ asset('assets/img/male.svg') }}" class="w-100" alt="">
+                        @if ($image)
+                            <img src="{{ asset('userProfile/' . $image) }}" class="w-100 rounded-circle" alt="">
+                        @else
+                            <img src="{{ asset('assets/img/male.svg') }}" class="w-100 rounded-circle" alt="">
+                        @endif
                     </div>
                 @elseif(auth()->user()->role === 'seller')
-                    <a href="#" class="mx-3 text-admin text-center">Dashboard Seller</a>
+                    <div class="avatar-admin-nav mx-3 shadow rounded-circle" onclick="avatarHover()">
+                        @if ($image)
+                            <img src="{{ asset('userProfile/' . $image) }}" class="w-100 rounded-circle" alt="">
+                        @else
+                            <img src="{{ asset('assets/img/male.svg') }}" class="w-100 rounded-circle" alt="">
+                        @endif
+                    </div>
                 @elseif(auth()->user()->role === 'customer')
                     <div class="avatar-admin-nav mx-3 shadow rounded-circle" onclick="avatarHover()">
-                        <img src="{{ asset('assets/img/male.svg') }}" class="w-100" alt="">
+                        @if ($image)
+                            <img src="{{ asset('userProfile/' . $image) }}" class="w-100 rounded-circle" alt="">
+                        @else
+                            <img src="{{ asset('assets/img/male.svg') }}" class="w-100 rounded-circle" alt="">
+                        @endif
                     </div>
                 @endif
             @else

@@ -21,9 +21,34 @@ class ProfileController extends Controller
             'email' => $user['email'],
             'name' => $user['name'],
             'image' => $user['image'],
-            'password'=> $user['password'],
             // 'user_type' => $user_role->value('name')
             'user_role' => $user['role'],
         ]);
     }
+
+    public function changeImage(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|image|max:10000',
+        ]);
+    
+        $user = User::find(Auth::id());
+    
+        if ($request->hasFile('image')) {
+            $oldImagePath = public_path('userProfile/' . $user->image);
+            
+            if (file_exists($oldImagePath) && is_file($oldImagePath)) {
+                unlink($oldImagePath);
+            }
+    
+            $imageName = $request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path('userProfile/'), $imageName);
+    
+            // Update nama gambar di database
+            $user->image = $imageName;
+            $user->save();
+    
+            return redirect()->route('profile')->with('success', 'Profile picture updated successfully');
+        }
+    }    
 }
