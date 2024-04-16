@@ -19,3 +19,4 @@ Route::post('/logout', [AuthController::class, 'logout']);
 
 Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
 Route::patch('/profile/change-image', [ProfileController::class, 'changeImage'])->name('profile.changeImage');
+Route::patch('profile/update', [ProfileController::class, 'update'])->name('profile.update');

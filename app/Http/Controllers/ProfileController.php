@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -50,5 +51,47 @@ class ProfileController extends Controller
     
             return redirect()->route('profile')->with('success', 'Profile picture updated successfully');
         }
-    }    
+    }
+    
+    public function update(Request $request)
+    {
+        $user = User::find(Auth::id());
+
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+        ]);
+    
+        // Update data
+        $user->name = $validatedData['name'];
+        $user->email = $validatedData['email'];
+    
+        // Cek apakah password diisi
+        if ($request->filled('password')) {
+            // Validasi password
+            $request->validate([
+                'password' => 'required|min:3',
+            ]);
+    
+            // Periksa apakah password lama benar
+            if (Hash::check($request->password, $user->password)) {
+                // Validasi password baru jika diisi
+                if ($request->filled('password_new')) {
+                    $request->validate([
+                        'password_new' => 'required|min:3|different:password',
+                    ]);
+    
+                    // Hash dan simpan password baru
+                    $user->password = bcrypt($request->password_new);
+                }
+            } else {
+                return redirect()->back()->withErrors(['password' => 'The provided password does not match your current password']);
+            }
+        }
+    
+        // Simpan perubahan
+        $user->save();
+    
+        return redirect()->route('profile')->with('success', 'Profile updated successfully');
+    }
 }
