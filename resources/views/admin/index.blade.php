@@ -5,5 +5,4 @@
 @endsection
 
 @section('container')
-    <h1>TES WAK</h1>
 @endsection

@@ -1,10 +1,10 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\DashboardController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -26,7 +26,7 @@ Route::middleware(['auth'])->group(function () {
     Route::patch('/profile/change-image', [ProfileController::class, 'changeImage'])->name('profile.changeImage');
     Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
-    Route::middleware(['admin'])->group(function () {
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    });
+    Route::middleware(['admin'])->prefix('admin')->group(function () {
+        Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    });    
 });

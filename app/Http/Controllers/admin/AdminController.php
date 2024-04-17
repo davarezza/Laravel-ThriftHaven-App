@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class DashboardController extends Controller
+class AdminController extends Controller
 {
     public function index()
     {
@@ -16,7 +17,7 @@ class DashboardController extends Controller
             $image = $user->image;
         }
     
-        return view('dashboard.index', [
+        return view('admin.index', [
             'image' => $image,
         ]);
     }
