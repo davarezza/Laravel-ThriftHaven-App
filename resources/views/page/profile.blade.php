@@ -78,6 +78,7 @@
                         @enderror
                     </div>
                     <button type="submit" class="px-5 btn-profile-save">Save</button>
+                    <a href="{{ route('home') }}" class="btn btn-info px-5">Back</a>
                 </div>
             </form>
         </div>

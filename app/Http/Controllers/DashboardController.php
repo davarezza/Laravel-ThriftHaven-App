@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class MainController extends Controller
+class DashboardController extends Controller
 {
-    public function home()
+    public function index()
     {
         $image = null;
     
@@ -16,9 +16,8 @@ class MainController extends Controller
             $image = $user->image;
         }
     
-        return view('home', [
+        return view('dashboard.index', [
             'image' => $image,
         ]);
     }
-    
 }
