@@ -2,7 +2,7 @@
     {{-- Sidebar Content --}}
     <div class="h-100">
         <div class="sidebar-logo">
-            <a href="#">ThriftHaven</a>
+            <a href="#">{{ config('app.name') }}</a>
         </div>
         <ul class="sidebar-nav">
             <li class="sidebar-header">
