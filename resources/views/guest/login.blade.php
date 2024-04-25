@@ -32,7 +32,7 @@
                         <hr class="line">
                         <form class="form mt-4" action="/login" method="post">
                         @csrf
-                            <input type="text" name="email" id="email" class="form-control border-secondary @error('email') is-invalid @enderror" autocomplete="off"
+                            <input type="text" name="email" id="email" class="form-control border-secondary @error('email') is-invalid @enderror"
                                 placeholder="Email" value="{{ old('email') }}">
                             @error('email')
                                 <div class="invalid-feedback">

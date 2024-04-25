@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\admin\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\seller\SellerController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -28,5 +29,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::middleware(['admin'])->prefix('admin')->group(function () {
         Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    });    
+    });
+
+    Route::middleware(['seller'])->prefix('seller')->group(function () {
+        Route::get('/dashboard', [SellerController::class, 'index'])->name('seller.dashboard');
+    });
 });

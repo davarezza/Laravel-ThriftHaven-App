@@ -28,7 +28,7 @@
                 <div class="navbar-collapse navbar">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
+                            <a href="{{ route('profile') }}" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
                                 @if($image)
                                     <img src="{{ asset('userProfile/'.$image) }}" class="avatar img-fluid rounded" alt="">
                                 @else
