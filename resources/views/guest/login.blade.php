@@ -83,6 +83,13 @@
         };
         toastr.success("{{ Session::get('success') }}");
         @endif
+
+        @if (Session::has('loginError'))
+        toastr.options = {
+            "positionClass": "toast-top-right",
+        };
+        toastr.error("{{ Session::get('loginError') }}");
+        @endif
    </script>
 </body>
 

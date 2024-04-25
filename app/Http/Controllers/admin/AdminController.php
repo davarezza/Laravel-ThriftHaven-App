@@ -21,4 +21,32 @@ class AdminController extends Controller
             'image' => $image,
         ]);
     }
+
+    public function customers()
+    {
+        $image = null;
+    
+        if (Auth::check()) {
+            $user = Auth::user();
+            $image = $user->image;
+        }
+    
+        return view('admin.customers', [
+            'image' => $image,
+        ]);
+    }
+
+    public function sellers()
+    {
+        $image = null;
+    
+        if (Auth::check()) {
+            $user = Auth::user();
+            $image = $user->image;
+        }
+    
+        return view('admin.sellers', [
+            'image' => $image,
+        ]);
+    }
 }

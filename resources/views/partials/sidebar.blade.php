@@ -16,10 +16,10 @@
                 <a href="#" class="sidebar-link collapsed" data-bs-target="#user" data-bs-toggle="collapse" aria-expanded="false"><i class='bx bxs-user pe-2'></i> User Management</a>
                 <ul id="user" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">Customer</a>
+                        <a href="{{ route('admin.customers') }}" class="sidebar-link">Customer</a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="#" class="sidebar-link">Seller</a>
+                        <a href="{{ route('admin.sellers') }}" class="sidebar-link">Seller</a>
                     </li>
                 </ul>
             </li>

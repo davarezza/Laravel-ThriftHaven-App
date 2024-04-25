@@ -28,7 +28,7 @@
                 <div class="navbar-collapse navbar">
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a href="{{ route('profile') }}" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
+                            <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
                                 @if($image)
                                     <img src="{{ asset('userProfile/'.$image) }}" class="avatar img-fluid rounded" alt="">
                                 @else
@@ -36,9 +36,12 @@
                                 @endif
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a href="#" class="dropdown-item" style="border-bottom: 1px solid #ccc; padding-bottom: 10px; text-align: center; font-weight: 600;"><i class='bx bxs-user mx-1'></i> Profile</a>
-                                <a href="#" class="dropdown-item" style="text-align: center; font-weight: 600;"><i
-                                    class='bx bx-log-out mx-1'></i> Logout</a>
+                                <a href="{{ route('profile') }}" class="dropdown-item" style="border-bottom: 1px solid #ccc; padding-bottom: 10px; text-align: center; font-weight: 600;"><i class='bx bxs-user mx-1'></i> Profile</a>
+                                <form action="/logout" method="post">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item" style="text-align: center; font-weight: 600; padding-top: 10px;"><i
+                                            class='bx bx-log-out mx-1'></i> Logout</button>
+                                </form>
                             </div>
                         </li>
                     </ul>
