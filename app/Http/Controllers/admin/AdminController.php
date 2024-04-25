@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -30,9 +31,12 @@ class AdminController extends Controller
             $user = Auth::user();
             $image = $user->image;
         }
+
+        $customers = User::where('role', 'customer')->get();
     
         return view('admin.customers', [
             'image' => $image,
+            'customers' => $customers,
         ]);
     }
 
@@ -44,9 +48,12 @@ class AdminController extends Controller
             $user = Auth::user();
             $image = $user->image;
         }
+
+        $sellers = User::where('role', 'seller')->get();
     
         return view('admin.sellers', [
             'image' => $image,
+            'sellers' => $sellers
         ]);
     }
 }

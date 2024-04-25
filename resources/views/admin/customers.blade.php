@@ -10,29 +10,26 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">Image</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
             </tr>
         </thead>
         <tbody>
+            @foreach($customers as $key => $data)
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <td>{{ $loop->iteration }}</td>
+                <td>
+                    @if ($data->image)
+                        <img src="{{ asset('userProfile/' . $data->image) }}" class="w-50" alt="Profile Image" style="max-width: 50px;">
+                    @else
+                        <img src="{{ asset('assets/img/male.svg') }}" class="w-50" alt="Default Image" style="max-width: 50px;">
+                    @endif
+                </td>
+                <td>{{ $data->name }}</td>
+                <td>{{ $data->email }}</td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
 @endsection
