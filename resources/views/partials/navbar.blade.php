@@ -6,8 +6,8 @@
         </div>
 
         <div class="d-flex">
-            <span class="mx-3">Tentang Thrifthaven</span>
-            <span class="mx-3">Mulai Berjualan</span>
+            <a href="#about" class="mx-3" style="text-decoration: none; margin-top: -3.7px;"><span>Tentang Thrifthaven</span></a>
+            <a href="#seller" class="mx-3" style="text-decoration: none; margin-top: -3.7px;"><span>Mulai Berjualan</span></a>
             <span class="mx-3">Laporkan Isu</span>
         </div>
     </div>

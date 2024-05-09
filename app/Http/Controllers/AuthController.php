@@ -26,6 +26,10 @@ class AuthController extends Controller
 
         User::create($validatedData);
 
+        activity()
+        ->causedBy(User::firstOrCreate(['email' => $validatedData['email']]))
+        ->log('Registered a new account');
+
         return redirect('login')->with('success', 'Registration successful. You can now log in.');
     }
 
@@ -44,10 +48,14 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            Auth::user();
+            $user = Auth::user();
+
+            activity()->causedBy($user)->log('Logged in');
 
             return redirect('/')->with('success', 'Login Success.');
         }
+
+        activity()->log('Failed login attempt for email: ' . $request->email);
 
         return back()->with('loginError', 'Login Failed');
     }

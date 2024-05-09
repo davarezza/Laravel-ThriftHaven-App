@@ -48,6 +48,8 @@ class ProfileController extends Controller
             // Update nama gambar di database
             $user->image = $imageName;
             $user->save();
+
+            activity()->causedBy($user)->log('Updated profile picture');
     
             return redirect()->route('profile')->with('success', 'Profile picture updated successfully');
         }
@@ -61,14 +63,13 @@ class ProfileController extends Controller
             'name' => 'required',
             'email' => 'required|email',
         ]);
+
+        activity()->causedBy($user)->log("Updated profile name or email");
     
-        // Update data
         $user->name = $validatedData['name'];
         $user->email = $validatedData['email'];
     
-        // Cek apakah password diisi
         if ($request->filled('password')) {
-            // Validasi password
             $request->validate([
                 'password' => 'required|min:3',
             ]);

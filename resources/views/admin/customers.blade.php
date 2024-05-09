@@ -13,6 +13,8 @@
                 <th scope="col">Image</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
+                <th scope="col">Seller Applying</th>
+                <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +30,15 @@
                 </td>
                 <td>{{ $data->name }}</td>
                 <td>{{ $data->email }}</td>
+                <td>Not currently applying</td>
+                <td>
+                    <a href="#" class="btn btn-success p-2"><i class='bx bxs-pencil'></i></a>
+                    <form action="#" onclick="return confirm('Data akan dihapus ?')" method="post" class="d-inline">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="btn btn-danger p-2"><i class='bx bxs-trash' ></i></button>
+                    </form>
+                </td>
             </tr>
             @endforeach
         </tbody>

@@ -14,6 +14,7 @@
         @include('partials.secondcard')
     </div>
 
+    <section id="seller"></section>
     <div class="kategory-foot2">
         <div class="row mx-0">
             <div class="d-flex justify-content-between align-items-center w-100">

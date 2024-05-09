@@ -41,7 +41,7 @@
                 Operations
             </li>
             <li class="sidebar-item">
-                <a href="#" class="sidebar-link"><i class='bx bxs-report'></i> Reported Issues</a>
+                <a href="{{ route('admin.activity') }}" class="sidebar-link"><i class='bx bxs-report'></i> Activity Log</a>
             </li>
             <li class="sidebar-item">
                 <a href="#" class="sidebar-link"><i class='bx bxs-cog'></i> Settings</a>

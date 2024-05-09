@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Activitylog\Models\Activity;
 
 class AdminController extends Controller
 {
@@ -55,5 +56,27 @@ class AdminController extends Controller
             'image' => $image,
             'sellers' => $sellers
         ]);
+    }
+
+    public function activity()
+    {
+        $activities = Activity::all();
+
+        if (Auth::check()) {
+            $user = Auth::user();
+            $image = $user->image;
+        }
+
+        return view('page.activity', [
+            'activities' => $activities,
+            'image' => $image,
+        ]);
+    }
+
+    public function deleteAll()
+    {
+        Activity::truncate();
+
+        return redirect()->route('activity')->with('success', 'All activity has been deleted.');
     }
 }

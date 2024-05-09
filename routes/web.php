@@ -31,6 +31,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
         Route::get('/customers', [AdminController::class, 'customers'])->name('admin.customers');
         Route::get('/sellers', [AdminController::class, 'sellers'])->name('admin.sellers');
+        Route::get('/activity', [AdminController::class, 'activity'])->name('admin.activity');
+        Route::delete('/activity/delete', [AdminController::class, 'deleteAll'])->name('activity.delete');
     });
 
     Route::middleware(['seller'])->prefix('seller')->group(function () {
